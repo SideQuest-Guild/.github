@@ -22,10 +22,10 @@
 <p align="center">Everything that runs the guild is open source. Pick a notice and take the quest.</p>
 
 <p align="center">
-  <a href="https://github.com/SideQuest-Guild/website"><img src="assets/quest-website.svg" width="210" alt="website: sidequest-guild.com and its API. Events, sign-ups, raid charts, the Hall of Heroes and the SQL loot ledger. Python, Litestar and Astro."></a>
-  <a href="https://github.com/SideQuest-Guild/bot"><img src="assets/quest-bot.svg" width="210" alt="bot: the Game Master bot in our Discord. Roles, event posts, sign-up buttons, badges and the weekly board. Python and discord.py."></a>
-  <a href="https://github.com/SideQuest-Guild/addon"><img src="assets/quest-addon.svg" width="210" alt="addon: the in-game addon. It records raid nights, runs SQL loot bids and shows the standings, plus the sync uploader. Lua and Python."></a>
-  <a href="https://github.com/SideQuest-Guild/companion"><img src="assets/quest-companion.svg" width="210" alt="companion: a desktop app for your tray. It carries raid nights to the site, brings points home and keeps the addon up to date. Rust and GPUI, for Windows, macOS and Linux."></a>
+  <a href="https://github.com/SideQuest-Guild/website"><img src="assets/quest-website.svg" width="24%" alt="website: sidequest-guild.com and its API. Events, sign-ups, raid charts, the Hall of Heroes and the SQL loot ledger. Python, Litestar and Astro."></a>
+  <a href="https://github.com/SideQuest-Guild/bot"><img src="assets/quest-bot.svg" width="24%" alt="bot: the Game Master bot in our Discord. Roles, event posts, sign-up buttons, badges and the weekly board. Python and discord.py."></a>
+  <a href="https://github.com/SideQuest-Guild/addon"><img src="assets/quest-addon.svg" width="24%" alt="addon: the in-game addon. It records raid nights, runs SQL loot bids and shows the standings, plus the sync uploader. Lua and Python."></a>
+  <a href="https://github.com/SideQuest-Guild/companion"><img src="assets/quest-companion.svg" width="24%" alt="companion: a desktop app for your tray. It carries raid nights to the site, brings points home and keeps the addon up to date. Rust and GPUI, for Windows, macOS and Linux."></a>
 </p>
 
 <p align="center"><img src="assets/divider.svg" width="560" alt=""></p>
@@ -57,6 +57,7 @@
 | [bot](https://github.com/SideQuest-Guild/bot) | The Discord bot. It talks to the API and nothing else | `make install`, then `make bot` with the API running |
 | [addon](https://github.com/SideQuest-Guild/addon) | The WoW addon and the `sidequest-sync` uploader | `luajit tests/run_tests.lua` |
 | [companion](https://github.com/SideQuest-Guild/companion) | The desktop tray app that syncs the addon with the site | `make install`, then `make demo` |
+| [docs](https://github.com/SideQuest-Guild/docs) | The handbook at [docs.sidequest-guild.com](https://docs.sidequest-guild.com): guides, references and changelogs | `make docs` |
 
 New here? Read [how to contribute](https://github.com/SideQuest-Guild/.github/blob/main/CONTRIBUTING.md) before your first pull request. Keep changes small, write tests for what you change, and title the pull request as a [Conventional Commit](https://www.conventionalcommits.org) such as `fix: the raid chart keeps its groups after a reload`.
 

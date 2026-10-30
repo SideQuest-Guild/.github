@@ -10,6 +10,7 @@ Thanks for taking a quest. This guide covers every SideQuest repo. A repo's own 
 | [bot](https://github.com/SideQuest-Guild/bot) | The Discord bot. It reaches the database only through the API | Python 3.15 (discord.py) |
 | [addon](https://github.com/SideQuest-Guild/addon) | The in-game addon and the `sidequest-sync` uploader | Lua, Python |
 | [companion](https://github.com/SideQuest-Guild/companion) | The desktop tray app that syncs the addon with the site | Rust (GPUI) |
+| [docs](https://github.com/SideQuest-Guild/docs) | The handbook at docs.sidequest-guild.com: guides, references and changelogs | Markdown (Sphinx) |
 
 ## Before you start
 
