@@ -1,0 +1,36 @@
+name: Something is broken
+description: Report a bug on the site, in the bot or in the addon.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. If this is a security problem, stop here and follow the [security policy](https://github.com/SideQuest-Guild/.github/blob/main/SECURITY.md) instead.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Say what you saw and what you expected to see.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How do we see it?
+      description: The steps, one per line. Include the page or command if you can.
+      placeholder: |
+        1. Go to sidequest-guild.com/events/
+        2. Sign up for a raid
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where?
+      description: Browser and device, Discord app, or game client and addon version.
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Screenshots, error messages, or logs.

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask the guild
+    url: https://discord.gg/nwncP7H9Hh
+    about: Questions about events, raids or joining go to the SideQuest Discord.
+  - name: Report a security problem
+    url: https://github.com/SideQuest-Guild/.github/blob/main/SECURITY.md
+    about: Please report security problems privately, not as an issue.
