@@ -1,5 +1,5 @@
 name: Something is broken
-description: Report a bug on the site, in the bot or in the addon.
+description: Report a bug on the site, in the bot, in the addon or in the companion app.
 labels: [bug]
 body:
   - type: markdown
@@ -28,7 +28,7 @@ body:
     id: where
     attributes:
       label: Where?
-      description: Browser and device, Discord app, or game client and addon version.
+      description: Browser and device, Discord app, game client and addon version, or companion app version and OS.
   - type: textarea
     id: extra
     attributes:

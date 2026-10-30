@@ -22,9 +22,29 @@
 <p align="center">Everything that runs the guild is open source. Pick a notice and take the quest.</p>
 
 <p align="center">
-  <a href="https://github.com/SideQuest-Guild/website"><img src="assets/quest-website.svg" width="270" alt="website: sidequest-guild.com and its API. Events, sign-ups, raid charts, the Hall of Heroes and the SQL loot ledger. Python, Litestar and Astro."></a>
-  <a href="https://github.com/SideQuest-Guild/bot"><img src="assets/quest-bot.svg" width="270" alt="bot: the Game Master bot in our Discord. Roles, event posts, sign-up buttons, badges and the weekly board. Python and discord.py."></a>
-  <a href="https://github.com/SideQuest-Guild/addon"><img src="assets/quest-addon.svg" width="270" alt="addon: the in-game addon. It records raid nights, runs SQL loot bids and shows the standings, plus the sync uploader. Lua and Python."></a>
+  <a href="https://github.com/SideQuest-Guild/website"><img src="assets/quest-website.svg" width="210" alt="website: sidequest-guild.com and its API. Events, sign-ups, raid charts, the Hall of Heroes and the SQL loot ledger. Python, Litestar and Astro."></a>
+  <a href="https://github.com/SideQuest-Guild/bot"><img src="assets/quest-bot.svg" width="210" alt="bot: the Game Master bot in our Discord. Roles, event posts, sign-up buttons, badges and the weekly board. Python and discord.py."></a>
+  <a href="https://github.com/SideQuest-Guild/addon"><img src="assets/quest-addon.svg" width="210" alt="addon: the in-game addon. It records raid nights, runs SQL loot bids and shows the standings, plus the sync uploader. Lua and Python."></a>
+  <a href="https://github.com/SideQuest-Guild/companion"><img src="assets/quest-companion.svg" width="210" alt="companion: a desktop app for your tray. It carries raid nights to the site, brings points home and keeps the addon up to date. Rust and GPUI, for Windows, macOS and Linux."></a>
+</p>
+
+<p align="center"><img src="assets/divider.svg" width="560" alt=""></p>
+
+<h2 align="center">The courier</h2>
+
+<p align="center">
+  <a href="https://github.com/SideQuest-Guild/companion"><img src="assets/companion.svg" width="100%" alt="SideQuest Companion: a painted tower loft at night where a guild courier sends a dove with a sealed scroll toward a lit castle. Raid nights to the site. Points back to the game."></a>
+</p>
+
+<p align="center">
+  <b>SideQuest Companion</b> lives in your tray on Windows, macOS and Linux. When WoW saves the addon's file, it
+  carries the raid night to the site. While the game is closed, it brings the new points home for your next login.
+  It also keeps the addon up to date and reminds you before the raids you signed up for. You sign in with your
+  SideQuest account, so only guild members get in.
+</p>
+
+<p align="center">
+  <a href="https://github.com/SideQuest-Guild/companion/releases/latest"><img src="assets/button-download.svg" height="48" alt="Get the app"></a>
 </p>
 
 <p align="center"><img src="assets/divider.svg" width="560" alt=""></p>
@@ -36,6 +56,7 @@
 | [website](https://github.com/SideQuest-Guild/website) | The site, its API and the database | `make install`, `make db-up migrate`, `make dev` |
 | [bot](https://github.com/SideQuest-Guild/bot) | The Discord bot. It talks to the API and nothing else | `make install`, then `make bot` with the API running |
 | [addon](https://github.com/SideQuest-Guild/addon) | The WoW addon and the `sidequest-sync` uploader | `luajit tests/run_tests.lua` |
+| [companion](https://github.com/SideQuest-Guild/companion) | The desktop tray app that syncs the addon with the site | `make install`, then `make demo` |
 
 New here? Read [how to contribute](https://github.com/SideQuest-Guild/.github/blob/main/CONTRIBUTING.md) before your first pull request. Keep changes small, write tests for what you change, and title the pull request as a [Conventional Commit](https://www.conventionalcommits.org) such as `fix: the raid chart keeps its groups after a reload`.
 

@@ -1,5 +1,5 @@
 name: Idea
-description: Suggest something new for the site, the bot or the addon.
+description: Suggest something new for the site, the bot, the addon or the companion app.
 labels: [enhancement]
 body:
   - type: textarea

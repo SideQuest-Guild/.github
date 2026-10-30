@@ -135,6 +135,77 @@ def hero() -> str:
 </svg>"""
 
 
+# The Courier's Loft, scaled to 1280x698 and shown 1280x600 (shifted up 50px). Lights: (x, y, radius, seconds).
+COMPANION_LIGHTS = [
+    (92, 395, 110, 2.6),  # the desk lantern
+    (458, 361, 46, 3.3),  # the candle by the shelves
+]
+MOON = (995, 137)
+DOVE = (800, 190)
+CASTLE = (1034, 252)
+
+
+def companion() -> str:
+    painting = data_uri(ART / "companion.webp", "image/webp")
+    glows = "".join(
+        f'<circle class="glow" cx="{x}" cy="{y}" r="{r}" fill="url(#torch)" '
+        f'style="animation-duration:{d}s;transform-origin:{x}px {y}px"/>'
+        for x, y, r, d in COMPANION_LIGHTS
+    )
+    # The letter's road: from the dove, arcing up and over the valley, down to the lit castle.
+    (dx, dy), (cx, cy) = DOVE, CASTLE
+    road = f"M{dx} {dy} C{dx + 70} {dy - 46} {cx - 80} {cy - 96} {cx} {cy - 6}"
+    title = "SIDEQUEST COMPANION"
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 600" width="1280" height="600" role="img" aria-labelledby="t d">
+<title id="t">SideQuest Companion</title>
+<desc id="d">A painted tower loft at night: a guild courier in a blue cloak releases a white dove carrying a sealed scroll toward a distant lit castle. The title reads SideQuest Companion.</desc>
+<style>
+{DISPLAY}{ITALIC}
+.glow{{mix-blend-mode:screen;animation:flicker 3s ease-in-out infinite alternate;}}
+@keyframes flicker{{0%{{opacity:.55;transform:scale(.94)}}35%{{opacity:.85;transform:scale(1.03)}}55%{{opacity:.6;transform:scale(.97)}}80%{{opacity:.95;transform:scale(1.05)}}100%{{opacity:.7;transform:scale(1)}}}}
+.moon{{mix-blend-mode:screen;animation:moon 9s ease-in-out infinite alternate;transform-origin:{MOON[0]}px {MOON[1]}px;}}
+@keyframes moon{{from{{opacity:.45;transform:scale(.96)}}to{{opacity:.8;transform:scale(1.06)}}}}
+.drift{{animation:drift 40s ease-in-out infinite alternate;transform-origin:640px 300px;}}
+@keyframes drift{{from{{transform:scale(1)}}to{{transform:scale(1.04) translate(-5px,3px)}}}}
+.road{{stroke-dasharray:2 9;animation:march 2.4s linear infinite;}}
+@keyframes march{{to{{stroke-dashoffset:-22}}}}
+.letter{{offset-path:path('{road}');offset-rotate:0deg;animation:carry 6.5s cubic-bezier(.45,.05,.3,1) infinite;}}
+@keyframes carry{{0%{{offset-distance:0%;opacity:0}}10%{{opacity:1}}86%{{opacity:1}}100%{{offset-distance:100%;opacity:0}}}}
+.title{{font-family:'SQ Display',Georgia,serif;font-size:58px;letter-spacing:.24em;}}
+.sub{{font-family:'SQ Serif',Georgia,serif;font-style:italic;font-size:24px;fill:{INK};}}
+{REDUCED}
+</style>
+<defs>
+<clipPath id="frame"><rect width="1280" height="600" rx="22"/></clipPath>
+<radialGradient id="torch"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".55"/><stop offset=".35" stop-color="{GOLD}" stop-opacity=".22"/><stop offset="1" stop-color="{GOLD}" stop-opacity="0"/></radialGradient>
+<radialGradient id="moonlight"><stop offset="0" stop-color="#dfe8ff" stop-opacity=".5"/><stop offset=".4" stop-color="#9fb4e6" stop-opacity=".16"/><stop offset="1" stop-color="#9fb4e6" stop-opacity="0"/></radialGradient>
+<radialGradient id="hush" cx="640" cy="74" r="560" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1 0 0 .24 0 56)"><stop offset="0" stop-color="{NIGHT}" stop-opacity=".9"/><stop offset=".55" stop-color="{NIGHT}" stop-opacity=".5"/><stop offset="1" stop-color="{NIGHT}" stop-opacity="0"/></radialGradient>
+<linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset=".7" stop-color="{NIGHT}" stop-opacity="0"/><stop offset="1" stop-color="{NIGHT}" stop-opacity=".7"/></linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{GOLD_HI}"/><stop offset=".55" stop-color="{GOLD}"/><stop offset="1" stop-color="{GOLD_2}"/></linearGradient>
+<filter id="lift" x="-10%" y="-40%" width="120%" height="180%"><feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#000" flood-opacity=".8"/></filter>
+<filter id="spark" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2.2"/></filter>
+</defs>
+<g clip-path="url(#frame)">
+<g class="drift"><image href="{painting}" y="-50" width="1280" height="698" preserveAspectRatio="xMidYMid slice"/></g>
+<circle class="moon" cx="{MOON[0]}" cy="{MOON[1]}" r="70" fill="url(#moonlight)"/>
+<g>{glows}</g>
+<path class="road" d="{road}" fill="none" stroke="{GOLD_HI}" stroke-opacity=".9" stroke-width="2.2" stroke-linecap="round"/>
+<g class="letter"><path d="M0 -10 10 0 0 10 -10 0z" fill="{GOLD_HI}" filter="url(#spark)"/><path d="M0 -6 6 0 0 6 -6 0z" fill="#fff4d6"/></g>
+<rect width="1280" height="600" fill="url(#hush)"/>
+<rect width="1280" height="600" fill="url(#floor)"/>
+<g filter="url(#lift)">
+<text class="title" x="654" y="68" text-anchor="middle" fill="url(#gold)">{title}</text>
+</g>
+<g stroke="{GOLD}" stroke-width="1.4" fill="none" opacity=".9">
+<path d="M400 90H612"/><path d="M668 90H880"/>
+<path d="M640 83l7 7-7 7-7-7z" fill="{GOLD}"/>
+</g>
+<text class="sub" x="640" y="124" text-anchor="middle" filter="url(#lift)">Raid nights to the site. Points back to the game.</text>
+<rect width="1280" height="600" rx="22" fill="none" stroke="{GOLD_2}" stroke-opacity=".7" stroke-width="2"/>
+</g>
+</svg>"""
+
+
 # The quest notices: one per repo. Lines are pre-wrapped to fit the parchment at 25px EB Garamond.
 NOTICES = {
     "website": (
@@ -151,6 +222,11 @@ NOTICES = {
         "THE WORKSHOP",
         ["The in-game addon. It", "records raid nights, runs", "SQL loot bids and shows", "the standings, plus the", "sync uploader."],
         "Lua · WoW: Forever · Python",
+    ),
+    "companion": (
+        "THE COURIER",
+        ["A desktop app for your", "tray. It carries raid nights", "to the site, brings points", "home and keeps the addon", "up to date."],
+        "Rust · GPUI · Win · Mac · Linux",
     ),
 }
 INK_DARK = "#2b1d0e"
@@ -210,6 +286,12 @@ DISCORD_GLYPH = (
     '<g fill="#1a2c5a" transform="translate(40 20)"><circle cx="8" cy="9" r="1.6"/><circle cx="12" cy="9" r="1.6"/><circle cx="16" cy="9" r="1.6"/></g>'
 )
 SITE_GLYPH = '<path class="g" transform="translate(40 18)" d="M3 26V10l3-2V4h3v2l3-3 3 3V4h3v4l3 2v16h-7v-7a2 2 0 0 0-4 0v7z"/>'
+# A sealed scroll with a down arrow over it, for downloading the companion.
+DOWNLOAD_GLYPH = (
+    '<g transform="translate(38 18)"><path class="g" d="M12 1v13M6 9l6 6 6-6" fill="none" stroke="#d8ab5c" '
+    'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
+    '<path class="g" d="M2 19h20v5H2z"/><path d="M10 21.5h4" stroke="#1a2c5a" stroke-width="1.6"/></g>'
+)
 
 
 def divider() -> str:
@@ -227,11 +309,18 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     paper = Image.open(ART / "notice.png").convert("RGB").resize((512, 768), Image.LANCZOS)
     paper.save(ART / "notice.webp", "WEBP", quality=80, method=6)
+    loft = ART / "companion.png"
+    if loft.exists():  # the full-size painting isn't committed; the WebP crop is
+        Image.open(loft).convert("RGB").resize((1280, 698), Image.LANCZOS).save(
+            ART / "companion.webp", "WEBP", quality=82, method=6
+        )
     (OUT / "hero.svg").write_text(hero())
+    (OUT / "companion.svg").write_text(companion())
     for name in NOTICES:
         (OUT / f"quest-{name}.svg").write_text(notice(name))
     (OUT / "button-discord.svg").write_text(button("JOIN THE DISCORD", DISCORD_GLYPH))
     (OUT / "button-site.svg").write_text(button("VISIT THE SITE", SITE_GLYPH))
+    (OUT / "button-download.svg").write_text(button("GET THE APP", DOWNLOAD_GLYPH))
     (OUT / "divider.svg").write_text(divider())
     for path in sorted(OUT.glob("*.svg")):
         print(f"{path.relative_to(ROOT)} {path.stat().st_size // 1024} KB")
