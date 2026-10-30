@@ -42,7 +42,7 @@ New here? Read [how to contribute](https://github.com/SideQuest-Guild/.github/bl
 <h2 align="center">Loot: SQL</h2>
 
 <p align="center">
-  Progression raids use <b>SQL</b>, short for SideQuest Loot and said "squeel".
+  Progression raids use <b>SQL</b>, short for SideQuest Loot and said "<a href="https://www.youtube.com/shorts/z5p-aMyfT98">squeel</a>".
   It is EPGP with a loot council for the biggest drops. You earn EP by showing up, you pay GP when you take gear,
   and your priority is EP divided by GP. <a href="https://sidequest-guild.com/raids/#loot">Read the full rules</a>.
 </p>
